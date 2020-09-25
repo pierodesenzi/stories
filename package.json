@@ -13,9 +13,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "firebase": "^7.21.0",
+    "firebase": "^7.21.1",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.4.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
