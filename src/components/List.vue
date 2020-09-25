@@ -58,8 +58,9 @@ a {
 }
 .article{
   position: relative;
-    border: 5px solid rgb(94, 94, 94);
-    margin: 0;
+    border: 3px solid rgb(179, 179, 179);
+    border-radius: 10px 10px;
+    margin: 0 0 3px 0;
     width: 60%;
     height: 80%;
     overflow-wrap: break-word;
