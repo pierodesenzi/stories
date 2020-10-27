@@ -6,6 +6,7 @@ import Login from '@/components/Login'
 import Register from '@/components/Register'
 import firebase from 'firebase'
 import Write from '@/components/Write'
+import Profile from '@/components/Profile'
 
 
 Vue.use(Router)
@@ -48,8 +49,16 @@ let router = new Router({
       meta: {
         requiresGuest: true
       }
-    }
-    
+    },
+    {
+      path: '/profile/:username',
+      name: 'profile',
+      component: Profile,
+      meta: {
+        requiresAuth: true
+      }
+    },
+
 
   ]
 });
