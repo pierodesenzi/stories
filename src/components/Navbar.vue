@@ -6,7 +6,7 @@
             <router-link v-if="!isLoggedIn" class='nav-link' to='/login'>Login</router-link>
             <router-link v-if="!isLoggedIn" class='nav-link' to='/register'>Register</router-link>
             <router-link v-if="isLoggedIn" class='nav-link' to='/write'>Write</router-link>
-            <a v-if="isLoggedIn" class="email-top">{{ currentUser.email }}</a>
+            <router-link v-if="isLoggedIn" class="email-top" :to="{ name: 'profile', params: { username: currentUser.displayName } }">{{ currentUser.displayName }}</router-link>
             <b v-if="isLoggedIn" v-on:click="logout" class='nav-link' to='/'>Logout</b>
         </div>
 

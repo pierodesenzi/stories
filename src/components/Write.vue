@@ -19,7 +19,7 @@
                         <button type="submit" class="btn">Save</button>
                     </div>
                 </div>
-                
+
             </form>
         </div>
     </div>
@@ -38,11 +38,15 @@ export default {
     },
     methods: {
         saveArticle () {
-            db.collection('articles').add({
-                title: this.title,
-                content: this.content,
-                author: firebase.auth().currentUser.email
-            }).then(DocRef => this.$router.push('/feed'))
+          let currentUsername = firebase.auth().currentUser.displayName;
+          let article = {
+              title: this.title,
+              content: this.content,
+              author: currentUsername
+          };
+          db.collection('articles').add(article)
+            .then(DocRef => db.collection('profiles').doc(currentUsername).collection('articles').add(article))
+            .then(DocRef => this.$router.push('/feed'))
         }
     }
 }
