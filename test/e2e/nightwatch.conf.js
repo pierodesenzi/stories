@@ -13,7 +13,8 @@ module.exports = {
     host: '127.0.0.1',
     port: 4444,
     cli_args: {
-      'webdriver.chrome.driver': require('chromedriver').path //"/usr/local/bin/chromedriver" 
+      //'webdriver.chrome.driver': require('chromedriver').path 
+      'webdriver.chrome.driver': "/usr/local/bin/chromedriver" 
     } 
   },
 
@@ -33,7 +34,7 @@ module.exports = {
         javascriptEnabled: true,
         acceptSslCerts: true,
         chromeOptions : {
-          args : ["--no-sandbox"]
+          args : ["--no-sandbox", "--disable-dev-shm-usage", "--headless", "--remote-debugging-port=9222"]
         } 
       }
     },
