@@ -1,6 +1,8 @@
 language: node_js
 node_js:
-  - 9
+  - node
+addons:
+  chrome: stable
 deploy:
   provider: firebase
   token: 1//0h9oFNMjlb4-JCgYIARAAGBESNwF-L9IrHOy1ZiDkbs2T4_LUQEc4av2bKTNwJCaayfG0z_8ppJPjVYBnMN7i1jV_z2XvN6xx2fE
