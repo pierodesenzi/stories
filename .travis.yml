@@ -3,6 +3,7 @@ node_js:
   - node
 addons:
   chrome: stable
+script: npm run build
 deploy:
   on:
     branch: main
