@@ -16,7 +16,8 @@
     "@firebase/rules-unit-testing": "^1.0.4",
     "chromedriver": "^86.0.0",
     "firebase": "^7.21.1",
-    "vue": "^2.5.2",
+    "vee-validate": "^3.4.5",
+    "vue": "^2.6.12",
     "vue-router": "^3.4.4"
   },
   "devDependencies": {

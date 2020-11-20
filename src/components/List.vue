@@ -33,6 +33,10 @@ export default {
         this.articles.push(data)
       });
     })
+    .catch(error => {
+      console.log("Erro ao carregar lista")
+      console.log(error);
+    })
   }
 }
 </script>
