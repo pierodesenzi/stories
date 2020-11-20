@@ -22,6 +22,10 @@ describe('Register', () => {
     const button = wrapper.find('#btnSubmit')
     button.trigger('click').then(resp =>{
         expect(wrapper.html()).toContain('This field is required')
+        done();
+    })
+    .catch(err =>{
+      throw err;
     })
   })
 
@@ -39,8 +43,15 @@ describe('Register', () => {
     .then(ret =>{
         const button = wrapper.find('#btnSubmit')
         button.trigger('click').then(resp =>{
-            expect(wrapper.vm._isDestroyed).toBeTruthy
+            expect(wrapper.vm._isDestroyed).toBeTruthy;
+            done()
         })
+        .catch(err =>{
+          throw err;
+        })
+    })
+    .catch(err =>{
+      throw err;
     })
 
     
