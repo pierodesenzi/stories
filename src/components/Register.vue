@@ -52,7 +52,7 @@
 
 <script>
 
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import db from './firebaseInit';
 import { ValidationProvider, ValidationObserver, extend } from 'vee-validate';
 import { required, email, min } from 'vee-validate/dist/rules.umd.js';
@@ -92,6 +92,7 @@ export default {
     },
     methods: {
         register: function(e) {
+          console.log(process.env.NODE_ENV)
           this.$refs.form.validate().then(success => {
             if(success){
               let registeredUser;
