@@ -1,4 +1,9 @@
 module.exports = {
+
+    email: 'ayrofllmao@gmail.com',
+    password:  '123456',
+
+     
     'validating empty fields': function (browser) {
       // automatically uses dev Server port from /config.index.js
       // default: http://localhost:8080
