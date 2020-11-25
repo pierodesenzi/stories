@@ -45,7 +45,7 @@ module.exports = {
           browser.setValue('textarea[id=biography]', 'hhahahahahah')
           .click("button[type=submit]")
           .useXpath()
-          .waitForElementVisible("//a[text()='risos']", 5000)
+          .waitForElementVisible("//a[text()='risos']", 10000)
           .end()
       }
   }
