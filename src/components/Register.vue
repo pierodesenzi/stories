@@ -113,7 +113,9 @@ export default {
                     displayName: this.username,
                   })
                   .then(DocRef => this.$router.go( {path: this.$router.path} ))
+                  .catch(e => console.log);
                 })
+                .catch(e => console.log);
               })
               .catch(error => {
                 //Deleta o usuário caso ocorra um erro ao criar o perfil
@@ -121,10 +123,11 @@ export default {
                 console.log(error);
                 registeredUser.delete()
                   .then(()=>{})
-                  .catch(error => {});
+                  .catch(error => console.log);
               })
             }
-          });
+          })
+          .catch(e => console.log);
             
           e.preventDefault();
         },
