@@ -1,4 +1,9 @@
 module.exports = {
+
+    email: 'ayrofllmao@gmail.com',
+    password:  '123456',
+
+     
     'validating empty fields': function (browser) {
       // automatically uses dev Server port from /config.index.js
       // default: http://localhost:8080
@@ -40,7 +45,7 @@ module.exports = {
           browser.setValue('textarea[id=biography]', 'hhahahahahah')
           .click("button[type=submit]")
           .useXpath()
-          .waitForElementVisible("//a[text()='risos']", 5000)
+          .waitForElementVisible("//a[text()='risos']", 10000)
           .end()
       }
   }

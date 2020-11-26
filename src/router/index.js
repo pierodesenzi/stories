@@ -4,7 +4,7 @@ import List from '@/components/List'
 import Home from '@/components/Home'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
 import Write from '@/components/Write'
 import Profile from '@/components/Profile'
 

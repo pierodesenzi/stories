@@ -52,7 +52,7 @@
 
 <script>
 
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import db from './firebaseInit';
 import { ValidationProvider, ValidationObserver, extend } from 'vee-validate';
 import { required, email, min } from 'vee-validate/dist/rules.umd.js';
@@ -92,6 +92,7 @@ export default {
     },
     methods: {
         register: function(e) {
+          console.log(process.env.NODE_ENV)
           this.$refs.form.validate().then(success => {
             if(success){
               let registeredUser;
@@ -112,7 +113,9 @@ export default {
                     displayName: this.username,
                   })
                   .then(DocRef => this.$router.go( {path: this.$router.path} ))
+                  .catch(e => console.log);
                 })
+                .catch(e => console.log);
               })
               .catch(error => {
                 //Deleta o usuário caso ocorra um erro ao criar o perfil
@@ -120,10 +123,11 @@ export default {
                 console.log(error);
                 registeredUser.delete()
                   .then(()=>{})
-                  .catch(error => {});
+                  .catch(error => console.log);
               })
             }
-          });
+          })
+          .catch(e => console.log);
             
           e.preventDefault();
         },
