@@ -18,7 +18,9 @@ export default {
   data () {
     return {
       articles: [],
-      currentProfile: {},
+      currentProfile: {
+        name: {},
+      },
     }
   },
   created () {
