@@ -1,10 +1,5 @@
 module.exports = {
-
-    email: 'ayrofllmao@gmail.com',
-    password:  '123456',
-
-     
-    'validates empty fields': function (browser) {
+    beforeEach : function(browser) {
       const devServer = browser.globals.devServerURL
   
       browser
@@ -14,6 +9,12 @@ module.exports = {
         .click("//a[text()='Register']")
         .useCss()
         .assert.visible("button[type=submit]")
+
+      
+    },
+
+    'validates empty fields': function (browser) {
+      browser
         .click("button[type=submit]")
         .useXpath()
         .assert.visible("//span[text()='This field is required']")
@@ -21,15 +22,7 @@ module.exports = {
     },
 
     'validates invalid emails': function (browser) {
-      const devServer = browser.globals.devServerURL
-  
-      browser
-        .url(devServer)
-        .useXpath()
-        .waitForElementVisible("//a[text()='Register']", 5000)
-        .click("//a[text()='Register']")
-        .useCss()
-        .assert.visible("button[type=submit]")
+      
         browser.setValue('input[id=email]', 'ayrofllmao')
         .click("button[type=submit]")
         .useXpath()
@@ -38,15 +31,7 @@ module.exports = {
     },
 
     'validates small passwords': function (browser) {
-      const devServer = browser.globals.devServerURL
-  
-      browser
-        .url(devServer)
-        .useXpath()
-        .waitForElementVisible("//a[text()='Register']", 5000)
-        .click("//a[text()='Register']")
-        .useCss()
-        .assert.visible("button[type=submit]")
+      
         browser.setValue('input[id=password]', '12345')
         .click("button[type=submit]")
         .useXpath()
@@ -64,12 +49,12 @@ module.exports = {
         .click("//a[text()='Register']")
         .useCss()
         .assert.visible("button[type=submit]")
-        browser.setValue('input[id=email]', 'ayrofllmao@gmail.com')
-        browser.setValue('input[id=password]', '123456')
-        browser.setValue('input[id=username]', 'risos')
-        browser.setValue('input[id=firstName]', 'risonho')
-        browser.setValue('input[id=lastName]', 'da silva')
-        browser.setValue('textarea[id=biography]', 'hhahahahahah')
+        .setValue('input[id=email]', 'ayrofllmao@gmail.com')
+        .setValue('input[id=password]', '123456')
+        .setValue('input[id=username]', 'risos')
+        .setValue('input[id=firstName]', 'risonho')
+        .setValue('input[id=lastName]', 'da silva')
+        .setValue('textarea[id=biography]', 'hhahahahahah')
         .click("button[type=submit]")
         .useXpath()
         .waitForElementVisible("//a[text()='risos']", 10000)
