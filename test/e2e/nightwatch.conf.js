@@ -33,6 +33,22 @@ module.exports = {
          lastName: 'Silva',
          biography: 'Ex-Jogador',
         },
+        login: (browser, user) => {
+          const devServer = browser.globals.devServerURL
+      
+          browser
+            .url(devServer)
+            .useXpath()
+            .waitForElementVisible("//a[text()='Login']", 5000)
+            .click("//a[text()='Login']")
+            .useCss()
+            .assert.visible("button[class=confirm]")
+            .setValue('input[id=email]', user.email)
+            .setValue('input[id=password]', user.password)
+            .click("button[class=confirm]")
+            .useXpath()
+            .waitForElementVisible("//a[text()='" + user.username + "']", 10000)
+        }
       }
     },
 

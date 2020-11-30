@@ -92,7 +92,6 @@ export default {
     },
     methods: {
         register: function(e) {
-          console.log(process.env.NODE_ENV)
           this.$refs.form.validate().then(success => {
             if(success){
               let registeredUser;
