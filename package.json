@@ -11,7 +11,8 @@
     "e2e": "node test/e2e/runner.js",
     "testNoEmulator": "npm run unit && npm run e2e",
     "test": "firebase emulators:exec 'npm run testNoEmulator' --import=./firebase_emulator_data",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "emulator": "firebase emulators:start --import=./firebase_emulator_data"
   },
   "dependencies": {
     "@firebase/rules-unit-testing": "^1.0.4",

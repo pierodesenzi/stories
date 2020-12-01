@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import List from '@/components/List'
+import Feed from '@/components/Feed'
 import Home from '@/components/Home'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
@@ -15,8 +15,8 @@ let router = new Router({
   routes: [
     {
       path: '/feed',
-      name: 'list',
-      component: List,
+      name: 'feed',
+      component: Feed,
       meta: {
         requiresAuth: true
       }

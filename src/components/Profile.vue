@@ -2,19 +2,18 @@
   <div id='lol'>
     <h3>{{currentProfile.name.first}} {{currentProfile.name.last}}</h3>
     <h5>{{currentProfile.biography}}</h5>
-    <ul>
-      <li v-for="article in articles" v-bind:key="article.id" class="article">
-        <h5>{{article.title}}</h5>
-         <a>{{article.content}}</a>
-      </li>
-    </ul>
+    <StoryList :articles="articles" :showAuthor="false"/>
   </div>
 </template>
 
 <script>
+import StoryList from './StoryList'
 import db from './firebaseInit'
 export default {
   name: 'profile',
+  components: {
+    StoryList,
+  },
   data () {
     return {
       articles: [],
@@ -48,7 +47,7 @@ export default {
           'id': doc.id,
           'title': doc.data().title,
           'content': doc.data().content,
-          'author_id': doc.data().author_id,
+          'author_id': doc.data().author,
           'created_at': doc.data().created_at
         }
         this.articles.push(data)
