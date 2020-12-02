@@ -1,7 +1,7 @@
 <template>
-  <div id='list'>
+  <div id='feed'>
     <h3>{{msg}}</h3>
-    <StoryList :articles="articles" :showAuthor="true"/>
+    <StoryList id="feedStories" :articles="articles" :showAuthor="true"/>
   </div>
 </template>
 

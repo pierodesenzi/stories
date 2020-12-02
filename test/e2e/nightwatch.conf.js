@@ -26,12 +26,17 @@ module.exports = {
       globals: {
         devServerURL: 'http://localhost:' + (process.env.PORT || config.dev.port),
         defaultUser:{
-         email: 'rivelino@gmail.com',
-         password: '123456',
-         username: 'Rivelino10',
-         firstName: 'Rivelino',
-         lastName: 'Silva',
-         biography: 'Ex-Jogador',
+          email: 'rivelino@gmail.com',
+          password: '123456',
+          username: 'Rivelino10',
+          firstName: 'Rivelino',
+          lastName: 'Silva',
+          biography: 'Ex-Jogador',
+        },
+        defaultStory:{
+          author: "Rivelino10",
+          title: "Fui jogador de futebol um dia",
+          content: "Joguei muito no corinthians"
         },
         login: (browser, user) => {
           const devServer = browser.globals.devServerURL

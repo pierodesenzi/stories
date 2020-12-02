@@ -2,9 +2,9 @@
     <ul>
         <li v-for="article in articles" v-bind:key="article.id" class="article">
             <h5>{{article.title}}</h5>
-            <a>{{article.content}}</a>
+            <span>{{article.content}}</span>
             <hr v-if="showAuthor">
-            <a v-if="showAuthor">{{article.author_id}}</a>
+            <span v-if="showAuthor">{{article.author_id}}</span>
         </li>
     </ul> 
 </template>
@@ -37,7 +37,7 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
+span {
   color: #2b2b2b;
 }
 .article{

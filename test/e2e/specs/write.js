@@ -62,7 +62,7 @@ module.exports = {
         .click("button[id=submitStory]")
         .useXpath()
         .waitForElementVisible("//h5[text()='"+titulo+"']", 5000)
-        .waitForElementVisible("//a[text()='"+conteudo+"']", 5000)
+        .waitForElementVisible("//span[text()='"+conteudo+"']", 5000)
         .end()
     },
   }

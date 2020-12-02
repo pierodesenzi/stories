@@ -1,8 +1,8 @@
 <template>
-  <div id='lol'>
+  <div id='profile'>
     <h3>{{currentProfile.name.first}} {{currentProfile.name.last}}</h3>
     <h5>{{currentProfile.biography}}</h5>
-    <StoryList :articles="articles" :showAuthor="false"/>
+    <StoryList id="profileStories" :articles="articles" :showAuthor="false"/>
   </div>
 </template>
 
