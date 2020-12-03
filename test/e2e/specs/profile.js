@@ -34,9 +34,7 @@ module.exports = {
           .useXpath()
           .assert.visible("//h5[text()='"+defStory.title+"']")
           .assert.visible("//span[text()='"+defStory.content+"']")
-          .assert.not.elementPresent("//span[text()='"+defStory.author+"']")
           .useCss()
-          .assert.not.elementPresent("hr")
           .end()
       },
 }
