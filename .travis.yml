@@ -4,6 +4,8 @@ node_js:
 addons:
   chrome: stable
 script: 
+  - npm uninstall
+  - npm cache clean --force
   - npm install
   - npm install -g firebase-tools
   - npm run test
