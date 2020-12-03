@@ -24,7 +24,36 @@ module.exports = {
       selenium_host: 'localhost',
       silent: true,
       globals: {
-        devServerURL: 'http://localhost:' + (process.env.PORT || config.dev.port)
+        devServerURL: 'http://localhost:' + (process.env.PORT || config.dev.port),
+        defaultUser:{
+          email: 'rivelino@gmail.com',
+          password: '123456',
+          username: 'Rivelino10',
+          firstName: 'Rivelino',
+          lastName: 'Silva',
+          biography: 'Ex-Jogador',
+        },
+        defaultStory:{
+          author: "Rivelino10",
+          title: "Fui jogador de futebol um dia",
+          content: "Joguei muito no corinthians"
+        },
+        login: (browser, user) => {
+          const devServer = browser.globals.devServerURL
+      
+          browser
+            .url(devServer)
+            .useXpath()
+            .waitForElementVisible("//a[text()='Login']", 5000)
+            .click("//a[text()='Login']")
+            .useCss()
+            .assert.visible("button[class=confirm]")
+            .setValue('input[id=email]', user.email)
+            .setValue('input[id=password]', user.password)
+            .click("button[class=confirm]")
+            .useXpath()
+            .waitForElementVisible("//a[text()='" + user.username + "']", 10000)
+        }
       }
     },
 
