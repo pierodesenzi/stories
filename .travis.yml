@@ -6,8 +6,8 @@ addons:
 before_install:
   - npm install -g standard
 install:
-  - bundle config set path 'vendor/bundle'
-  - bundle install
+  - npm install -g snyk
+  - snyk protect
   - snyk test
 script:
   - npm cache clean --force
