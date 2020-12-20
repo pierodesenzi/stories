@@ -1,0 +1,24 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-LODASHDEFAULTSDEEP-450198:
+    - nightwatch > lodash.defaultsdeep:
+        reason: Requires prior analysis on the changes this version brings
+        expires: '2021-01-19T01:16:59.762Z'
+  SNYK-JS-LODASHDEFAULTSDEEP-450199:
+    - nightwatch > lodash.defaultsdeep:
+        reason: Requires prior analysis on the changes this version brings
+        expires: '2021-01-19T01:16:59.762Z'
+  'npm:ip:20170304':
+    - nightwatch > proxy-agent > pac-proxy-agent > pac-resolver > ip:
+        reason: Requires prior analysis on the changes this version brings
+        expires: '2021-01-19T01:16:59.763Z'
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - nightwatch > mocha-nightwatch > debug:
+        patched: '2020-12-20T01:07:52.646Z'
+  'npm:ms:20170412':
+    - nightwatch > mocha-nightwatch > debug > ms:
+        patched: '2020-12-20T01:07:52.646Z'

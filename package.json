@@ -10,16 +10,19 @@
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "testNoEmulator": "npm run unit && npm run e2e",
-    "test": "firebase emulators:exec 'npm run testNoEmulator' --import=./firebase_emulator_data && npm run lint",
+    "test": "snyk test && npm run lint && firebase emulators:exec 'npm run testNoEmulator' --import=./firebase_emulator_data",
     "lint": "standard",
     "build": "node build/build.js",
-    "emulator": "firebase emulators:start --import=./firebase_emulator_data"
+    "emulator": "firebase emulators:start --import=./firebase_emulator_data",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "@firebase/rules-unit-testing": "^1.0.4",
     "chromedriver": "^87.0.1",
     "firebase": "^8.1.1",
     "nightwatch": "^0.9.12",
+    "snyk": "^1.437.2",
     "vee-validate": "^3.4.5",
     "vue": "^2.6.12",
     "vue-router": "^3.4.4"
@@ -82,5 +85,6 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "snyk": true
 }
