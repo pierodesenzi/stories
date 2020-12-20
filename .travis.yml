@@ -6,6 +6,7 @@ addons:
 before_install:
   - npm install -g standard
 install:
+  - npm install
   - npm install -g snyk
   - snyk protect
   - snyk test
