@@ -14,6 +14,42 @@ ignore:
     - nightwatch > proxy-agent > pac-proxy-agent > pac-resolver > ip:
         reason: Requires prior analysis on the changes this version brings
         expires: '2021-01-19T01:16:59.763Z'
+  SNYK-JS-AXIOS-1038255:
+    - chromedriver > axios:
+        reason: 'No solution yet available, wait to see'
+        expires: '2021-01-19T21:35:26.609Z'
+  SNYK-JS-HTTPSPROXYAGENT-469131:
+    - nightwatch > proxy-agent > https-proxy-agent:
+        reason: 'No solution yet available, wait to see'
+        expires: '2021-01-19T21:35:26.610Z'
+    - nightwatch > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        reason: 'No solution yet available, wait to see'
+        expires: '2021-01-19T21:35:26.610Z'
+  'npm:https-proxy-agent:20180402':
+    - nightwatch > proxy-agent > https-proxy-agent:
+        reason: 'No solution yet available, wait to see'
+        expires: '2021-01-19T21:35:26.610Z'
+    - nightwatch > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        reason: 'No solution yet available, wait to see'
+        expires: '2021-01-19T21:35:26.610Z'
+  SNYK-JS-MINIMIST-559764:
+    - nightwatch > mocha-nightwatch > mkdirp > minimist:
+        reason: 'No solution yet available, wait to see'
+        expires: '2021-01-19T21:35:26.610Z'
+    - nightwatch > optimist > minimist:
+        reason: 'No solution yet available, wait to see'
+        expires: '2021-01-19T21:35:26.610Z'
+  'npm:growl:20160721':
+    - nightwatch > mocha-nightwatch > growl:
+        reason: 'No solution yet available, wait to see'
+        expires: '2021-01-19T21:35:26.610Z'
+  'npm:http-proxy-agent:20180406':
+    - nightwatch > proxy-agent > http-proxy-agent:
+        reason: 'No solution yet available, wait to see'
+        expires: '2021-01-19T21:35:26.610Z'
+    - nightwatch > proxy-agent > pac-proxy-agent > http-proxy-agent:
+        reason: 'No solution yet available, wait to see'
+        expires: '2021-01-19T21:35:26.611Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:debug:20170905':
