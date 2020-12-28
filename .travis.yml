@@ -3,16 +3,22 @@ node_js:
   - 10
 addons:
   chrome: stable
+before_install:
+  - npm install -g standard
+install:
+  - npm install
+  - npm install -g snyk
+  - snyk protect
+  - snyk test
 script:
   - npm cache clean --force
   - rm -rf node_modules
-  - npm install
   - npm install -g firebase-tools
-  - npm run test
-  - npm run build
 deploy:
   on:
     branch: main
-  skip_cleanup: true  
+  skip_cleanup: true
   provider: firebase
   token: 1//0h9oFNMjlb4-JCgYIARAAGBESNwF-L9IrHOy1ZiDkbs2T4_LUQEc4av2bKTNwJCaayfG0z_8ppJPjVYBnMN7i1jV_z2XvN6xx2fE
+after_deploy:
+  - snyk monitor
