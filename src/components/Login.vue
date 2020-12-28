@@ -1,16 +1,16 @@
 <template>
-<div>
-    <h2>Login</h2>
-    <div class="login-box">
-        
-    <form id="login" class="login-form">
-        <input type="text" id="email" v-model="email" placeholder="email">
-        <input type="password" id="password" v-model="password" placeholder="password">
-        <button class="confirm" v-on:click="login">Login</button>
-        <span class='error-msg'>{{errorMessage}}</span>
-    </form>
-    </div>
-</div>
+  <div>
+      <h2>Login</h2>
+      <div class="login-box">
+
+        <form id="login" class="login-form">
+            <input type="text" id="email" v-model="email" placeholder="email">
+            <input type="password" id="password" v-model="password" placeholder="password">
+            <button class="confirm" v-on:click="login">Login</button>
+            <span class='error-msg'>{{errorMessage}}</span>
+        </form>
+      </div>
+  </div>
 </template>
 
 <script>

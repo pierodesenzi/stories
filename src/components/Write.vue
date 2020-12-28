@@ -65,17 +65,17 @@ export default {
     methods: {
         saveArticle () {
             this.$refs.form.validate().then(success => {
-                if(success){
-                    let currentUsername = firebase.auth().currentUser.displayName;
-                    let article = {
-                        title: this.title,
-                        content: this.content,
-                        author: currentUsername
-                    };
-                    db.collection('articles').add(article)
-                        .then(DocRef => db.collection('profiles').doc(currentUsername).collection('articles').add(article))
-                        .then(DocRef => this.$router.push('/feed'))
-                }
+              //  if(success){
+                let currentUsername = firebase.auth().currentUser.displayName;
+                let article = {
+                    title: this.title,
+                    content: this.content,
+                    author: currentUsername
+                };
+                db.collection('articles').add(article)
+                    .then(DocRef => db.collection('profiles').doc(currentUsername).collection('articles').add(article))
+                    .then(DocRef => this.$router.push('/feed'))
+             //   }
             })
             .catch(error => {
                 //Deleta o usuário caso ocorra um erro ao criar o perfil

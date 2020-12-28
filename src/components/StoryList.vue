@@ -6,11 +6,11 @@
             <hr v-if="showAuthor">
             <span v-if="showAuthor">{{article.author_id}}</span>
         </li>
-    </ul> 
+    </ul>
 </template>
 
 <script>
-import firebase from 'firebase/app';
+// import firebase from 'firebase/app';
 
 export default {
     props: ['articles', 'showAuthor'],
