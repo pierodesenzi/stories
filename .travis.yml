@@ -3,17 +3,15 @@ node_js:
   - 10
 addons:
   chrome: stable
-before_install:
-  - npm install -g standard
 install:
   - npm install
-  - npm install -g snyk
   - snyk protect
   - snyk test
 script:
   - npm cache clean --force
   - rm -rf node_modules
   - npm install -g firebase-tools
+  - npm run lint
   - npm run build
 deploy:
   on:
