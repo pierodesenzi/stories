@@ -11,7 +11,7 @@
     "e2e": "node test/e2e/runner.js",
     "testNoEmulator": "npm run unit && npm run e2e",
     "test": "firebase emulators:exec 'npm run testNoEmulator' --import=./firebase_emulator_data",
-    "lint": "./node_modules/.bin/eslint .eslintrc.js",
+    "lint": "eslint \"./**/*.js\"",
     "build": "node build/build.js",
     "emulator": "firebase emulators:start --import=./firebase_emulator_data",
     "snyk-protect": "snyk protect",
