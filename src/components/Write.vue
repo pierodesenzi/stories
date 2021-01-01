@@ -1,6 +1,12 @@
 <template>
     <div id="write" class="box">
         <div class="row">
+            <select name="cars" id="cars" style="display: block">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
             <ValidationObserver ref="form">
                 <form @submit.prevent="saveArticle" class="col s12">
                     <div class="row">
@@ -59,7 +65,8 @@ export default {
     data () {
         return {
             title: null,
-            content: null
+            content: null,
+            my_groups: []
         }
     },
     methods: {

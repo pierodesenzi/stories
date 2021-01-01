@@ -7,6 +7,7 @@ import Register from '@/components/Register'
 import firebase from 'firebase/app'
 import Write from '@/components/Write'
 import Profile from '@/components/Profile'
+import Groups from '@/components/Groups'
 
 
 Vue.use(Router)
@@ -54,6 +55,14 @@ let router = new Router({
       path: '/profile/:username',
       name: 'profile',
       component: Profile,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/groups',
+      name: 'groups',
+      component: Groups,
       meta: {
         requiresAuth: true
       }
