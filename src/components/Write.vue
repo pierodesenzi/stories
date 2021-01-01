@@ -1,12 +1,13 @@
 <template>
     <div id="write" class="box">
         <div class="row">
-            <select name="cars" id="cars" style="display: block">
+            <!-- <select name="cars" id="cars" style="display: block">
                 <option value="volvo">Volvo</option>
                 <option value="saab">Saab</option>
                 <option value="mercedes">Mercedes</option>
                 <option value="audi">Audi</option>
-            </select>
+            </select> -->
+            
             <ValidationObserver ref="form">
                 <form @submit.prevent="saveArticle" class="col s12">
                     <div class="row">
@@ -26,6 +27,17 @@
                                 <span>{{ errors[0] }}</span>
                             </div>
                         </ValidationProvider>
+                        <div class="row">
+                            <ValidationProvider rules="group-required" v-slot="{ errors }">
+                                <div class="col s12">
+                                    <option disabled value="">Group</option>
+                                    <select v-model="selected_group" name="groups" id="groups" style="display: block">
+                                        <option v-for="group in my_groups" v-bind:key="group">{{group}}</option>
+                                    </select>
+                                    <span>{{ errors[0] }}</span>
+                                </div>
+                            </ValidationProvider>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
@@ -55,6 +67,11 @@ extend('title-required', {
   message: 'A title for your story is required'
 });
 
+extend('group-required', {
+  ...required,
+  message: 'You need to set a group, or publish the story in the main feed.'
+});
+
 
 export default {
     components: {
@@ -66,9 +83,27 @@ export default {
         return {
             title: null,
             content: null,
-            my_groups: []
+            my_groups: ['Main Feed'],
+            selected_group: '',
+            currentUser: false
         }
     },
+    created () {
+        if(firebase.auth().currentUser){
+            this.isLoggedIn = true;
+            this.currentUser = firebase.auth().currentUser;
+        }
+
+        db.collection('groups-profiles').where('user','==',this.currentUser.uid).get().then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+            const data = {
+            'group': doc.data().group
+            }
+            this.my_groups.push(data.group)
+        })
+      })
+    },
+
     methods: {
         saveArticle () {
             this.$refs.form.validate().then(success => {
@@ -77,7 +112,8 @@ export default {
                     let article = {
                         title: this.title,
                         content: this.content,
-                        author: currentUsername
+                        author: currentUsername,
+                        group: this.selected_group
                     };
                     db.collection('articles').add(article)
                         .then(DocRef => db.collection('profiles').doc(currentUsername).collection('articles').add(article))

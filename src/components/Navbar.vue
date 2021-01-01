@@ -3,6 +3,7 @@
         <div class="sts-navbar">
             <router-link class='nav-link' to='/'>Home</router-link>
             <router-link class='nav-link' to='/feed'>Feed</router-link>
+            <router-link v-if="isLoggedIn" class='nav-link' to='/myfeed'>My Feed</router-link>
             <router-link v-if="isLoggedIn" class='nav-link' to='/groups'>Groups</router-link>
             <router-link v-if="!isLoggedIn" class='nav-link' to='/login'>Login</router-link>
             <router-link v-if="!isLoggedIn" class='nav-link' to='/register'>Register</router-link>

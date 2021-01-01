@@ -21,7 +21,7 @@ export default {
     }
   },
   created () {
-    db.collection('articles').where('group','==','Main Feed').get().then(querySnapshot => {
+    db.collection('articles').where('group','==',this.$route.params.group).get().then(querySnapshot => {
       querySnapshot.forEach(doc => {
         const data = {
           'id': doc.id,

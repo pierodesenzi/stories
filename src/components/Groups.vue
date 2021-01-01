@@ -7,6 +7,8 @@
         <h6>{{group.description}}</h6>
         <button v-if=group.isin v-on:click="optout(group.name)" class="btn leave">Sair deste grupo</button>
         <button v-else v-on:click="optin(group.name)" class="btn">Entrar neste grupo</button>
+        <!-- <button v-if=group.isin> </button> -->
+        <router-link v-if=group.isin class="btn" :to="{ name: 'group', params: { group: group.name } }"> Ver o grupo </router-link>
       </li>
     </ul>
   </div>
