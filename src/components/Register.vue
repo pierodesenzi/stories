@@ -93,44 +93,44 @@ export default {
     methods: {
         register: function(e) {
           this.$refs.form.validate().then(success => {
-            if(success){
-              let registeredUser;
-              //Registra o usuário no sistema de autenticação
-              firebase.auth().createUserWithEmailAndPassword (this.email, this.password)
-              .then(user => {
-                registeredUser = user.user;
-                //Registra o perfil
-                db.collection('profiles').doc(this.username).set({
-                  name: this.name,
-                  email: this.email,
-                  biography: this.biography,
-                  articles: []
+          //  if(success){
+            let registeredUser;
+            //Registra o usuário no sistema de autenticação
+            firebase.auth().createUserWithEmailAndPassword (this.email, this.password)
+            .then(user => {
+              registeredUser = user.user;
+              //Registra o perfil
+              db.collection('profiles').doc(this.username).set({
+                name: this.name,
+                email: this.email,
+                biography: this.biography,
+                articles: []
+              })
+              .then(DocRef => {
+                //Atualiza o usuário para incluir o username
+                registeredUser.updateProfile({
+                  displayName: this.username,
                 })
-                .then(DocRef => {
-                  //Atualiza o usuário para incluir o username
-                  registeredUser.updateProfile({
-                    displayName: this.username,
-                  })
-                  .then(DocRef => this.$router.go( {path: this.$router.path} ))
-                  .catch(e => console.log);
-                })
+                .then(DocRef => this.$router.go( {path: this.$router.path} ))
                 .catch(e => console.log);
               })
-              .catch(error => {
-                //Deleta o usuário caso ocorra um erro ao criar o perfil
-                console.log("Erro ao criar perfil")
-                console.log(error);
-                registeredUser.delete()
-                  .then(()=>{})
-                  .catch(error => console.log);
-              })
-            }
+              .catch(e => console.log);
+            })
+            .catch(error => {
+              //Deleta o usuário caso ocorra um erro ao criar o perfil
+              console.log("Erro ao criar perfil")
+              console.log(error);
+              registeredUser.delete()
+                .then(()=>{})
+                .catch(error => console.log);
+            })
+          //  }
           })
           .catch(e => console.log);
-            
+
           e.preventDefault();
         },
-      
+
     }
 }
 </script>
