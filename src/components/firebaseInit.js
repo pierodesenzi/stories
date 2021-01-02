@@ -7,7 +7,8 @@ const firebaseApp = firebase.initializeApp(firebaseConfig)
 
 var db = firebaseApp.firestore()
 
-if (process.env.NODE_ENV == "development" || "testing") {
+console.log(process.env.NODE_ENV)
+if (process.env.NODE_ENV == "testing") {
     firebase.auth().useEmulator('http://localhost:9099/');
     firebase.auth().createUserWithEmailAndPassword ('rivelino@gmail.com', '123456')
     .then(user => {
