@@ -63,6 +63,7 @@ module.exports = {
         javascriptEnabled: true,
         acceptSslCerts: true,
         chromeOptions : {
+          //args : ["--no-sandbox", "--disable-dev-shm-usage", "--headless", "--remote-debugging-port=9222"]
           args : ["--no-sandbox", "--disable-dev-shm-usage", "--headless", "--remote-debugging-port=9222"]
         } 
       }

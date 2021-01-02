@@ -5,6 +5,7 @@
             <span>{{article.content}}</span>
             <hr v-if="showAuthor">
             <span v-if="showAuthor">{{article.author_id}}</span>
+            <span v-if="article.group">@ {{article.group}}</span>
         </li>
     </ul>
 </template>

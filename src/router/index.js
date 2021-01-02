@@ -7,6 +7,9 @@ import Register from '@/components/Register'
 import firebase from 'firebase/app'
 import Write from '@/components/Write'
 import Profile from '@/components/Profile'
+import Groups from '@/components/Groups'
+import MyFeed from '@/components/MyFeed'
+import GroupFeed from '@/components/GroupFeed'
 
 
 Vue.use(Router)
@@ -17,6 +20,14 @@ let router = new Router({
       path: '/feed',
       name: 'feed',
       component: Feed,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/myfeed',
+      name: 'myfeed',
+      component: MyFeed,
       meta: {
         requiresAuth: true
       }
@@ -54,6 +65,22 @@ let router = new Router({
       path: '/profile/:username',
       name: 'profile',
       component: Profile,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/group/:group',
+      name: 'group',
+      component: GroupFeed,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/groups',
+      name: 'groups',
+      component: Groups,
       meta: {
         requiresAuth: true
       }
