@@ -25,8 +25,6 @@ export default {
   created () {
     let docRef = db.collection("profiles").doc(this.$route.params.username);
 
-
-
     docRef.get().then((doc) => {
         if (doc.exists) {
             //console.log("Document data:", doc.data());

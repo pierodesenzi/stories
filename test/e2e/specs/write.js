@@ -52,12 +52,15 @@ module.exports = {
       const devServer = browser.globals.devServerURL
       const titulo = "testandoTitulo"
       const conteudo = "testando o conteudo"
+      const grupo = "Main Feed"
   
       browser
         .assert.visible('input[id=title]')
         .setValue('input[id=title]', titulo)
         .assert.visible('textarea[id=content]')
         .setValue('textarea[id=content]', conteudo)
+        .assert.visible('select[id=groups]')
+        .setValue('select[id=groups]', grupo)
         .assert.visible("button[id=submitStory]")
         .click("button[id=submitStory]")
         .useXpath()
