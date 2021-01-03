@@ -16,6 +16,8 @@ module.exports = {
       browser
         .assert.visible('textarea[id=content]')
         .setValue('textarea[id=content]', 'titulo')
+        .assert.visible('select[id=groups]')
+        .setValue('select[id=groups]', 'Main Feed')
         .assert.visible("button[id=submitStory]")
         .click("button[id=submitStory]")
         .useXpath()
@@ -29,10 +31,27 @@ module.exports = {
       browser
         .assert.visible('input[id=title]')
         .setValue('input[id=title]', 'titulo')
+        .assert.visible('select[id=groups]')
+        .setValue('select[id=groups]', 'Main Feed')
         .assert.visible("button[id=submitStory]")
         .click("button[id=submitStory]")
         .useXpath()
         .assert.visible("//span[text()='The content of your story is required']")
+        .end()
+    },
+
+    'validates empty group': function (browser) {
+      const devServer = browser.globals.devServerURL
+  
+      browser
+        .assert.visible('input[id=title]')
+        .setValue('input[id=title]', 'titulo')
+        .assert.visible('textarea[id=content]')
+        .setValue('textarea[id=content]', 'titulo')
+        .assert.visible("button[id=submitStory]")
+        .click("button[id=submitStory]")
+        .useXpath()
+        .assert.visible("//span[text()='You need to set a group, or publish the story in the main feed.']")
         .end()
     },
 
@@ -45,6 +64,7 @@ module.exports = {
         .useXpath()
         .assert.visible("//span[text()='The content of your story is required']")
         .assert.visible("//span[text()='A title for your story is required']")
+        .assert.visible("//span[text()='You need to set a group, or publish the story in the main feed.']")
         .end()
     },
 

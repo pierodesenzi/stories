@@ -1,14 +1,14 @@
 <template>
-  <div id='feed'>
+  <div id='groups'>
     <h3>Groups</h3>
     <ul>
       <li v-for="group in all_groups" v-bind:key="group.id" v-bind:class="{isin: group.isin}" class="group">
         <h4>{{group.name}}</h4>
         <h6>{{group.description}}</h6>
         <button v-if=group.isin v-on:click="optout(group.name)" class="btn leave">Sair deste grupo</button>
-        <button v-else v-on:click="optin(group.name)" class="btn">Entrar neste grupo</button>
+        <button v-else v-on:click="optin(group.name)" class="btn join">Entrar neste grupo</button>
         <!-- <button v-if=group.isin> </button> -->
-        <router-link v-if=group.isin class="btn" :to="{ name: 'group', params: { group: group.name } }"> Ver o grupo </router-link>
+        <router-link v-if=group.isin class="btn view" :to="{ name: 'group', params: { group: group.name } }"> Ver o grupo </router-link>
       </li>
     </ul>
   </div>
