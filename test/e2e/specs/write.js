@@ -68,7 +68,7 @@ module.exports = {
         .end()
     },
 
-    'inserts a new story': function (browser) {
+    'inserts a new story in main feed': function (browser) {
       const devServer = browser.globals.devServerURL
       const titulo = "testandoTitulo"
       const conteudo = "testando o conteudo"
