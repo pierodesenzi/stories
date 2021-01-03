@@ -118,7 +118,7 @@ export default {
                     db.collection('articles').add(article)
                         .then(DocRef => db.collection('profiles').doc(currentUsername).collection('articles').add(article))
                         .then(DocRef => {
-                            if (this.selected_group == 'My Feed'){
+                            if (this.selected_group == 'Main Feed'){
                                 this.$router.push('/feed')
                             }
                             else{
