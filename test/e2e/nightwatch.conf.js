@@ -38,6 +38,12 @@ module.exports = {
           title: "Fui jogador de futebol um dia",
           content: "Joguei muito no corinthians"
         },
+        defaultGroupStory:{
+          author: "Zezinho",
+          title: "Testes grupo",
+          content: "Grupo",
+          group: "Histórias 18+"
+        },
         login: (browser, user) => {
           const devServer = browser.globals.devServerURL
       
@@ -63,7 +69,6 @@ module.exports = {
         javascriptEnabled: true,
         acceptSslCerts: true,
         chromeOptions : {
-          //args : ["--no-sandbox", "--disable-dev-shm-usage", "--headless", "--remote-debugging-port=9222"]
           args : ["--no-sandbox", "--disable-dev-shm-usage", "--headless", 'window-size=1920,1080', "--remote-debugging-port=9222"]
         } 
       }
