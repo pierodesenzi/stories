@@ -117,7 +117,15 @@ export default {
                     };
                     db.collection('articles').add(article)
                         .then(DocRef => db.collection('profiles').doc(currentUsername).collection('articles').add(article))
-                        .then(DocRef => this.$router.push('/feed'))
+                        .then(DocRef => {
+                            if (this.selected_group == 'Main Feed'){
+                                this.$router.push('/feed')
+                            }
+                            else{
+                                this.$router.push('/myfeed')
+                            }
+                            
+                        })
                 }
             })
             .catch(error => {

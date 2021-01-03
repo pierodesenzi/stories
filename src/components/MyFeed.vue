@@ -2,6 +2,7 @@
   <div id='feed'>
     <h3>{{msg}}</h3>
     <StoryList id="feedStories" :articles="articles" :showAuthor="true"/>
+    <h4 v-if="articles.length == 0">Não há histórias a serem mostradas</h4>
   </div>
 </template>
 
